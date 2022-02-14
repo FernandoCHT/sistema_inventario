@@ -10,6 +10,7 @@ use App\Http\Requests\Product\UpdateRequest;
 use App\Models\Category;
 use App\Models\Provider;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProductController extends Controller
 {
@@ -111,6 +112,14 @@ class ProductController extends Controller
         } else {
             $product->update(['status' => 'ACTIVE']);
             return redirect()->back();
+        }
+    }
+
+    public function get_products_by_barcode(Request $request)
+    {
+        if ($request->ajax()) {
+            $products = Product::where('code', $request->code)->firstOrFail();
+            return response()->json($products);
         }
     }
 }

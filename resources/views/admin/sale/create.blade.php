@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 @section('title','Registro de venta')
 @section('styles')
+{!! Html::style('select/dist/css/bootstrap-select.min.css') !!}
+<style type="text/css">
+    .unstyled-button {
+        border: none;
+        padding: 0;
+        background: none;
+    }
+</style>
 @endsection
 @section('options')
 @endsection
@@ -74,6 +82,7 @@
             $("#precio").val(datosProducto[2]);
             $("#stock").val(datosProducto[1]);
         }
+
         var id_producto = $('#id_producto');
 
         id_producto.change(function() {
@@ -90,6 +99,33 @@
                 }
             });
         });
+
+        $(obtener_registro());
+
+        function obtener_registro(code) {
+            $.ajax({
+                url: "{{url('get_products_by_barcode')}}",
+                type: 'GET',
+                data: {
+                    code: code
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    $("#precio").val(data.precio_venta);
+                    $("#stock").val(data.stock);
+                    $("#id_producto").val(data.id);
+                }
+            });
+        }
+        $(document).on('keyup', '#code', function() {
+            var valorResultado = $(this).val();
+            if (valorResultado != "") {
+                obtener_registro(valorResultado);
+            } else {
+                obtener_registro();
+            }
+        })
 
 
         function agregar() {
