@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="http://www.urbanui.com/" />
 </head>
 
-<body>
+<body class="sidebar-dark">
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
@@ -32,20 +32,7 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="fas fa-bars"></span>
         </button>
-        <ul class="navbar-nav">
-          <li class="nav-item nav-search d-none d-md-flex">
-            <div class="nav-link">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fas fa-search"></i>
-                  </span>
-                </div>
-                <input type="text" class="form-control" placeholder="Search" aria-label="Search">
-              </div>
-            </div>
-          </li>
-        </ul>
+
         <ul class="navbar-nav navbar-nav-right">
           @yield('create')
           <li class="nav-item nav-profile dropdown">
@@ -61,7 +48,7 @@
               <a class="dropdown-item" href="{{ url('logout') }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout" onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                 <i class="fas fa-power-off text-primary"></i>
-                Logout
+                Cerrar Sesión
               </a>
               <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -78,29 +65,7 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
-      <div class="theme-setting-wrapper">
-        <div id="settings-trigger"><i class="fas fa-fill-drip"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close fa fa-times"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
-            <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
-          </div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme">
-            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
-          </div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
-          <div class="color-tiles mx-0 px-4">
-            <div class="tiles primary"></div>
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default"></div>
-          </div>
-        </div>
-      </div>
+
       @yield('preference')
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->

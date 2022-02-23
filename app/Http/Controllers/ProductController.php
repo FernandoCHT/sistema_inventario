@@ -94,6 +94,14 @@ class ProductController extends Controller
         return redirect()->action([ProductController::class, 'index']);
     }
 
+    public function pdf(Product $products)
+    {
+        $products = Product::get();
+        return view('admin.product.pdf');
+        // $pdf = PDF::loadView('admin.product.pdf');
+        // return $pdf->stream();
+    }
+
 
 
     public function get_products_by_id(Request $request)

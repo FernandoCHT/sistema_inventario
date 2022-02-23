@@ -35,6 +35,10 @@
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Productos</h4>
                         {{-- <i class="fas fa-ellipsis-v"></i>  --}}
+
+                        <a href="{{route('products.pdf')}}" class="btn btn-danger btn-icon-text"><i class="far fa-file-pdf"></i></a>
+
+                        <a href=""></a>
                         <div class="btn-group">
                             <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>

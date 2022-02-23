@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="border-bottom text-center pb-4">
-                                <img src="{{asset('imagen/'.$product->imagen)}}" alt="profile" class="img-lg  mb-3" />
+                                <img src="{{asset('imagen/'.$product->imagen)}}" alt="profile" class="mw-100" />
                                 {{-- <p>Nombre de proveedor. </p>  --}}
 
 

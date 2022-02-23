@@ -58,6 +58,9 @@ Route::resource('providers', ProviderController::class)->names('providers');
 Route::resource('products', ProductController::class)->names('products');
 Route::get('/get_products_by_id', [ProductController::class, 'get_products_by_id']);
 Route::get('/get_products_by_barcode', [ProductController::class, 'get_products_by_barcode']);
+
+Route::get('products/pdf', [ProductController::class, 'pdf'])->name('products.pdf');
+
 #-----------------------------------#
 
 #Rutas de compras
