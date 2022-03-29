@@ -6,10 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>
-    Hola soy un pdf
+    <h2>Lista de productos</h2>
+    <br>
+    <table class="table table-striped table-hover">
+        <thead class="thead">
+            <th>Nombre</th>
+            <th>Precio de venta</th>
+            <th>Cantidad actual</th>
+            <th>Código de barras</th>
+        </thead>
+        <tbody>
+
+            @foreach ($products as $product)
+            <tr>
+                <td>{{$product->nombre}}</td>
+                <td>{{$product->precio_venta}}</td>
+                <td>{{$product->stock}}</td>
+                <td>{!!DNS1D::getBarcodeHTML($product->code, 'EAN13'); !!}</td>
+            </tr>
+            @endforeach
+
+        </tbody>
+    </table>
 </body>
 
 </html>

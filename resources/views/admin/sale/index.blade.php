@@ -35,17 +35,14 @@
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Ventas</h4>
 
-                        <div class="btn-group">
-                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
+                        <div class="btn-gorup">
+                            <a href="{{route ('sales.create')}}" class="btn btn-inverse-dark btn-icon-prepend">
+                                <i class="fas fa-plus"></i> Agregar
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{route('sales.create')}}" class="dropdown-item">Registrar</a>
-
-
-                            </div>
                         </div>
                     </div>
+
+                    <br>
 
                     <div class="table-responsive">
                         <table id="order-listing" class="table">
@@ -62,7 +59,9 @@
                                     <th>Fecha</th>
                                     <th>Total</th>
                                     <th>Estado</th>
-                                    <th style="width: 50px;">Acciones</th>
+                                    <th>Exportar</th>
+                                    <th>Ver detalle</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -85,20 +84,14 @@
                                         </a>
                                     </td>
                                     @endif
-                                    <td style="width: 50px;">
+                                    <td>
+                                        <a href="{{url('sales/pdf', $sale)}}" class="btn btn-danger btn-icon-text"><i class="far fa-file-pdf"></i></a>
 
+                                        <a href="" class="btn btn-success btn-icon-text"><i class="far fa-file-excel"></i></a>
+                                    </td>
 
-                                        <!-- <a class="jsgrid-button jsgrid-edit-button" href="{{route('sales.edit', $sale)}}" title="Editar">
-                                            <i class="far fa-edit"></i>
-                                        </a> -->
-
-                                        <!-- <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button> -->
-                                        <a href="{{url('sales/pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-file-pdf"></i></a>
-                                        <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
-                                        <a href="" class="jsgrid-button jsgrid-edit-button"><i class="fas fa-print"></i></a>
-
+                                    <td>
+                                        <a href="{{route('sales.show', $sale)}}" class="btn btn-info btn-icon-text"><i class="far fa-eye"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

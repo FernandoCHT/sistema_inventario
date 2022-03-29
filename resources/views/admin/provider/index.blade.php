@@ -34,19 +34,13 @@
 
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Proveedores</h4>
-                        {{-- <i class="fas fa-ellipsis-v"></i>  --}}
-                        <div class="btn-group">
-                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
+                        <div class="btn-gorup">
+                            <a href="{{route ('providers.create')}}" class="btn btn-inverse-dark btn-icon-prepend">
+                                <i class="fas fa-plus"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{route('providers.create')}}" class="dropdown-item">Agregar</a>
-
-                                {{-- <button class="dropdown-item" type="button">Another action</button>
-                              <button class="dropdown-item" type="button">Something else here</button>  --}}
-                            </div>
                         </div>
                     </div>
+                    <br>
 
                     <div class="table-responsive">
                         <table id="order-listing" class="table">
@@ -73,15 +67,15 @@
 
 
                                     <!--Botones de acciones-->
-                                    <td style="width: 50px;">
+                                    <td>
                                         {!! Form::open(['route'=>['providers.destroy',$provider], 'method'=>'DELETE']) !!}
 
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('providers.edit', $provider)}}" title="Editar">
-                                            <i class="far fa-edit"></i>
+                                        <a class="btn btn-sm btn-primary" href="{{route('providers.edit', $provider)}}" title="Editar">
+                                            <i class="far fa-edit"></i> Editar
                                         </a>
 
-                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                            <i class="far fa-trash-alt"></i>
+                                        <button class="btn btn-sm btn-danger" type="submit" title="Eliminar">
+                                            <i class="far fa-trash-alt"></i> Eliminar
                                         </button>
 
                                         <!--Botones de acciones-->

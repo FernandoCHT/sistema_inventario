@@ -97,9 +97,9 @@ class ProductController extends Controller
     public function pdf(Product $products)
     {
         $products = Product::get();
-        return view('admin.product.pdf');
-        // $pdf = PDF::loadView('admin.product.pdf');
-        // return $pdf->stream();
+        //return view('admin.product.pdf');
+        $pdf = PDF::loadView('admin.product.pdf', ['products' => $products]);
+        return $pdf->stream();
     }
 
 

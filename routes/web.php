@@ -25,6 +25,8 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Route::get('products/pdf', [ProductController::class, 'pdf'])->name('products.pdf');
+
 Route::get('/', function () {
     return view('welcome');
 });
